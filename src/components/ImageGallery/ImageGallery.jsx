@@ -3,17 +3,7 @@ import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 
-export default class ImageGallery extends Component {
-  static propTypes = {
-    images: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-      })
-    ).isRequired,
-  };
-
-  render() {
-    const { images } = this.props;
+const ImageGallery=({images}) =>  {
     return (
       <ul className={`${css.gallery} js-gallery`}>
         {images.map(image => (
@@ -22,4 +12,13 @@ export default class ImageGallery extends Component {
       </ul>
     );
   }
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 }
+
+export default ImageGallery;
